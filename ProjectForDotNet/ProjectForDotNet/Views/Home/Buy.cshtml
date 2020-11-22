@@ -1,0 +1,42 @@
+﻿@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+
+<h3>Checkout</h3>
+
+<br />
+
+<form method="post" action="">
+
+    <input type="hidden" name="TransportId" value="@ViewBag.Id">
+    <table>
+        <tbody>
+            <tr>
+                <td>First Name</td>
+                <td><input type="text" name="FirstName" /></td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td><input type="text" name="LastName" /></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="text" name="Email" /></td>
+            </tr>
+            <tr>
+                <td>Contact Phone</td>
+                <td><input type="text" name="ContactPhone" /></td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td><input type="text" name="Address" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="Checkout" /></td>
+            </tr>
+        </tbody>
+    </table>
+</form>
+
+

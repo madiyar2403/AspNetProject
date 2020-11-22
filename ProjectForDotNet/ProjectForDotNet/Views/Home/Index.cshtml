@@ -1,0 +1,37 @@
+﻿@model IEnumerable<ProjectForDotNet.Models.Transport>
+
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Transports which are available now!</h3>
+<br />
+<table>
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Producer</td>
+            <td>Price (tenge)</td>
+            <td>Weight</td>
+            <td>Capacity</td>
+            <td>Max speed</td>
+            <td>Image</td>
+            <td>&nbsp;</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var transport in Model)
+        {
+            <tr>
+                <td>@transport.Name</td>
+                <td>@transport.Producer</td>
+                <td>@transport.Price</td>
+                <td>@transport.Weight</td>
+                <td>@transport.Capacity</td>
+                <td>@transport.MaxSpeed</td>
+                <td>@transport.ImageUrl</td>
+                <td><a href="/Home/Buy/@transport.TransportId">Buy now!</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
