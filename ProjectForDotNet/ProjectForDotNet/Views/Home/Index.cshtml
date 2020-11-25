@@ -3,9 +3,60 @@
 @{
     Layout = "/Views/Shared/_Layout.cshtml";
 }
-
-<h3>Transports which are available now!</h3>
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Transports which are available now!</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Transports which are available now!</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
 <br />
+<div class="card">
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Producer</td>
+                    <td>Price (tenge)</td>
+                    <td>Weight</td>
+                    <td>Capacity</td>
+                    <td>Max speed</td>
+                    <td>Image</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var transport in Model)
+                {
+                    <tr>
+                        <td>@transport.Name</td>
+                        <td>@transport.Producer</td>
+                        <td>@transport.Price</td>
+                        <td>@transport.Weight</td>
+                        <td>@transport.Capacity</td>
+                        <td>@transport.MaxSpeed</td>
+                        <td><img src="@Html.Raw(@transport.ImageUrl)" width='150' height='150'></td>
+                        <td><a href="/Home/Buy/@transport.TransportId">Buy now!</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
+<!-- /.card -->
+
 <table>
     <thead>
         <tr>

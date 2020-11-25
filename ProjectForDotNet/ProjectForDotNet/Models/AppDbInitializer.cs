@@ -8,7 +8,7 @@ using System.Web;
 
 namespace ProjectForDotNet.Models
 {
-    public class AppDbInitializer : DropCreateDatabaseAlways<ApplicationDbContext>
+    public class AppDbInitializer : CreateDatabaseIfNotExists<ApplicationDbContext>
     {
         protected override void Seed(ApplicationDbContext context)
         {
