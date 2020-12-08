@@ -128,5 +128,19 @@ namespace ProjectForDotNet.Controllers
             }
             base.Dispose(disposing);
         }
+
+        [HttpPost]
+        public ActionResult VerifyName(string name, int? id)
+        {
+            if (id.HasValue)
+            {
+                return Json(!db.Transports.Any(x => x.Name == name && x.TransportId != id));
+            }
+             else
+            {
+                return Json(!db.Transports.Any(x => x.Name == name));
+            }
+        }
+
     }
 }
