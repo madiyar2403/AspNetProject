@@ -183,6 +183,10 @@
     <Compile Include="Migrations\202011221835425_DataMigration.Designer.cs">
       <DependentUpon>202011221835425_DataMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202012082303258_ValidationAdded.cs" />
+    <Compile Include="Migrations\202012082303258_ValidationAdded.Designer.cs">
+      <DependentUpon>202012082303258_ValidationAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AppDbInitializer.cs" />
@@ -190,6 +194,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\PriceAttribute.cs" />
     <Compile Include="Models\Transport.cs" />
     <Compile Include="Models\Type.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -2151,6 +2156,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202011221835425_DataMigration.resx">
       <DependentUpon>202011221835425_DataMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012082303258_ValidationAdded.resx">
+      <DependentUpon>202012082303258_ValidationAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

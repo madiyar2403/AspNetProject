@@ -23,15 +23,18 @@ namespace ProjectForDotNet.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public string Buy(Order order)
         {
             order.DateTime = DateTime.Now;
-
-            appDbContext.Orders.Add(order);
-
-            appDbContext.SaveChanges();
-
-            return $"Dear, {order.FirstName}, you will be contacted soon!";
+            if (ModelState.IsValid)
+            {
+                appDbContext.Orders.Add(order);
+                appDbContext.SaveChanges();
+                return $"Dear, {order.FirstName}, you will be contacted soon!";
+            }
+            return $"You entered wrong order, please create new!";
+            
         }
         [Authorize(Roles = "admin")]
         public ActionResult About()
