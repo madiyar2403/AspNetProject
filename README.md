@@ -19,15 +19,15 @@ Entities:
   
   Validations:
   
-  the remote validation
+  - the remote validation
   
   VerifyName method for checking name of the transport, 'Name' is checked by TransportsController This method checks if the transport name data matches the input data.
   
-  the custom attriubute validation
+  - the custom attriubute validation
   
   The custom validation attribute is “PriceAttribute”. He checks the “Price” property of the “Transport” model, making sure that the price is reliable and does not exceed 10000000000000 and not less than 100, the implementation is in the same model.
   
-  the models which implements IValidatableObject
+  - the models which implements IValidatableObject
   
   The model 'Type' and model 'Category' inherits IValidatableObject. Validate method checks the name and description if it is empty(white space) or not in both models.
 
