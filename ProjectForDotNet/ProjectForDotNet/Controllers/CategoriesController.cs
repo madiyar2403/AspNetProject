@@ -13,9 +13,19 @@ namespace ProjectForDotNet.Controllers
     public class CategoriesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private ICategoriesRepository categoriesRepo;
+
+        public CategoriesController()
+        {
+            this.categoriesRepo = new EFCategoriesRepository();
+        }
+        public CategoriesController(ICategoriesRepository categoriesRepo)
+        {
+            this.categoriesRepo = categoriesRepo;
+        }
 
         // GET: Categories
-        public ActionResult Index()
+        public ViewResult Index()
         {
             var categories = db.Categories.Include(c => c.Type);
             return View(categories.ToList());

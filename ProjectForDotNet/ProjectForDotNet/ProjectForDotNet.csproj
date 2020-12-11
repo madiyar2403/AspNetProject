@@ -191,7 +191,15 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AppDbInitializer.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\EFCategoriesRepository.cs" />
+    <Compile Include="Models\EFOrdersRepository.cs" />
+    <Compile Include="Models\EFTransportsRepository.cs" />
+    <Compile Include="Models\EFTypesRepository.cs" />
+    <Compile Include="Models\ICategoriesRepository.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\IOrdersRepository.cs" />
+    <Compile Include="Models\ITransportsRepository.cs" />
+    <Compile Include="Models\ITypesRepository.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\PriceAttribute.cs" />

@@ -13,11 +13,21 @@ namespace ProjectForDotNet.Controllers
     public class TypesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private ITypesRepository typesRepo;
+
+        public TypesController()
+        {
+            this.typesRepo = new EFTypesRepository();
+        }
+        public TypesController(ITypesRepository typesRepo)
+        {
+            this.typesRepo = typesRepo;
+        }
 
         // GET: Types
-        public ActionResult Index()
+        public ViewResult Index()
         {
-            return View(db.Types.ToList());
+            return View(typesRepo.Type.ToList());
         }
 
         // GET: Types/Details/5
