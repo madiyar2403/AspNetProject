@@ -13,9 +13,19 @@ namespace ProjectForDotNet.Controllers
     public class TransportsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private ITransportsRepository transportsRepo;
+
+        public TransportsController()
+        {
+            this.transportsRepo = new EFTransportsRepository();
+        }
+        public TransportsController(ITransportsRepository transportsRepo)
+        {
+            this.transportsRepo = transportsRepo;
+        }
 
         // GET: Transports
-        public ActionResult Index()
+        public ViewResult Index()
         {
             var transports = db.Transports.Include(t => t.Category);
             return View(transports.ToList());

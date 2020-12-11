@@ -13,9 +13,19 @@ namespace ProjectForDotNet.Controllers
     public class OrdersController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private IOrdersRepository ordersRepo;
+
+        public OrdersController()
+        {
+            this.ordersRepo = new EFOrdersRepository();
+        }
+        public OrdersController(IOrdersRepository ordersRepo)
+        {
+            this.ordersRepo = ordersRepo;
+        }
 
         // GET: Orders
-        public ActionResult Index()
+        public ViewResult Index()
         {
             var orders = db.Orders.Include(o => o.Transport);
             return View(orders.ToList());
