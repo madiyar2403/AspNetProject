@@ -9,6 +9,7 @@ namespace ProjectForDotNet.Models
     public class Category : IValidatableObject //Air: Helicopter, Plane. Land: Car, Truck, etc.
     {
         public int CategoryId { get; set; }
+        [Display(Name = "Category name")]
         public string Name { get; set; }
         public string Description { get; set; }
         public int TypeId { get; set; }

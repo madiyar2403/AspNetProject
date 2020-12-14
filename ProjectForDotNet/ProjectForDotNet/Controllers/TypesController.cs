@@ -10,6 +10,7 @@ using ProjectForDotNet.Models;
 
 namespace ProjectForDotNet.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class TypesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

@@ -1,7 +1,70 @@
 ﻿@{
     ViewBag.Title = "About";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
-
-<p>Use this area to provide additional information.</p>
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-1">
+                <div class="col-sm-6">
+                    <h1>Contacts</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item">@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li class="breadcrumb-item">@Html.ActionLink("Information", "About", "Home")</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card card-default">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        Information
+                    </h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <div class="alert alert-info alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <h5><i class="icon fas fa-info"></i> Transport market!</h5>
+                        This is a final project for the course SWD6: MIcrosoft .NET Framework: ASP.NET ApplIcatIon Development. Project is a standard online store selling transports. Since it is quite popular nowadays, I decided to create this web application. I have several main entities, and these entities have all relationship types:
+                        <br><br>
+                        How site is functioning?
+                        <br><br>
+                        1.Register;<br>
+                        2.Search some transport;<br>
+                        3.Make order;<br>
+                        4.Get checkout;<br><br>
+                        Entities:
+                        <br><br>
+                        Type(id, name, description)<br>
+                        Category(id, name, description, typeId, Type)<br>
+                        Transport(id, name, weight, capacity, maxSpeed, producer, description, price, imageUrl, categoryId, Category)<br>
+                        Order(id, firstName, lastName, address, contactPhone, email, dateTime, transportId, Transport)<br>
+                        IdentityModels:<br>
+                        -User<br>
+                        -Role<br><br>
+                        Validations:
+                        <br><br>
+                        the remote validation<br><br>
+                        VerifyName method for checking name of the transport, 'Name' is checked by TransportsController This method checks if the transport name data matches the input data.
+                        <br><br>
+                        the custom attriubute validation<br><br>
+                        The custom validation attribute is “PriceAttribute”. He checks the “Price” property of the “Transport” model, making sure that the price is reliable and does not exceed 10000000000000 and not less than 100, the implementation is in the same model.
+                        <br><br>
+                        the models which implements IValidatableObject<br><br>
+                        The model 'Type' and model 'Category' inherits IValidatableObject. Validate method checks the name and description if it is empty(white space) or not in both models.
+                    </div>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.col -->
+    </div>
+</div>
