@@ -47,6 +47,9 @@
                 <li class="nav-item d-none d-sm-inline-block">
                     @Html.ActionLink("Information", "About", "Home", new { @class = "nav-link" })
                 </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    @Html.ActionLink("Contact", "Contact", "Home", new { @class = "nav-link" })
+                </li>
             </ul>
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
@@ -72,7 +75,7 @@
                         <img src="~/Content/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">User Name</a>
+                        <a href="#" class="d-block">User name</a>
                     </div>
                 </div>
 
@@ -80,58 +83,90 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-                             with font-awesome or any other icon font library -->
-                        <li class="nav-item has-treeview menu-open">
-                            <a href="#" class="nav-link active">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>
-                                    Admin panel
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <div class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        @Html.ActionLink("Types panel", "Index", "Types")
-                                    </div>
-                                </li>
-                                <li class="nav-item">
-                                    <div class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        @Html.ActionLink("Categories panel", "Index", "Categories")
-                                    </div>
-                                </li>
-                                <li class="nav-item">
-                                    <div class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        @Html.ActionLink("Transports panel", "Index", "Transports")
-                                    </div>
-                                </li>
-                                <li class="nav-item">
-                                    <div class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        @Html.ActionLink("Orders panel", "Index", "Orders")
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
+                        with font-awesome or any other icon font library -->
+                        @if (ViewContext.HttpContext.User.IsInRole("admin"))
+                        {
+                            <li class="nav-item has-treeview menu-open">
+                                <a href="#" class="nav-link active">
+                                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                                    <p>
+                                        Admin panel
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <div class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            @Html.ActionLink("Types panel", "Index", "Types")
+                                        </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            @Html.ActionLink("Categories panel", "Index", "Categories")
+                                        </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            @Html.ActionLink("Transports panel", "Index", "Transports")
+                                        </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            @Html.ActionLink("Orders panel", "Index", "Orders")
+                                        </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            @Html.ActionLink("Roles", "Index", "Roles")
+                                        </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            @Html.ActionLink("Users", "Index", "ApplicationUsers")
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+
                         <li class="nav-header">Main panel</li>
                         <li class="nav-item">
-                            <a href="pages/calendar.html" class="nav-link">
-                                <i class="nav-icon far fa-calendar-alt"></i>
+                            <div class="nav-link">
+                                <i class="nav-icon fas fa-home"></i>
                                 <p>
-                                    Calendar
+                                    @Html.ActionLink("Main", "Index", "Home")
                                 </p>
-                            </a>
+                            </div>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/gallery.html" class="nav-link">
+                            <div class="nav-link">
+                                <i class="nav-icon fas fa-info"></i>
+                                <p>
+                                    @Html.ActionLink("Information", "About", "Home")
+                                </p>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <div class="nav-link">
+                                <i class="nav-icon fas fa-id-card"></i>
+                                <p>
+                                    @Html.ActionLink("Contact", "Contact", "Home")
+                                </p>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <div class="nav-link">
                                 <i class="nav-icon far fa-image"></i>
                                 <p>
-                                    Gallery
+                                    @Html.ActionLink("Gallery", "Gallery", "Home")
                                 </p>
-                            </a>
+                            </div>
                         </li>
                         <li class="nav-header">ACCOUNT</li>
                         <li class="nav-item">
@@ -224,7 +259,26 @@
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 </body>
 </html>
+<!-- Ekko Lightbox -->
+<script src="~/Content/plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
+<!-- Filterizr-->
+<script src="~/Content/plugins/filterizr/jquery.filterizr.min.js"></script>
+<!-- Page specific script -->
+<script>
+    $(function () {
+        $(document).on('click', '[data-toggle="lightbox"]', function (event) {
+            event.preventDefault();
+            $(this).ekkoLightbox({
+                alwaysShowClose: true
+            });
+        });
 
+        $('.filter-container').filterizr({ gutterPixels: 3 });
+        $('.btn[data-filter]').on('click', function () {
+            $('.btn[data-filter]').removeClass('active');
+            $(this).addClass('active');
+        });
+    })</script>
 <!-- DataTables -->
 <script src="~/Content/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="~/Content/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>

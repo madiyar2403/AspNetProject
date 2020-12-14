@@ -9,6 +9,7 @@ namespace ProjectForDotNet.Models
     public class Type : IValidatableObject //Air, Land, etc.
     {
         public int TypeId { get; set; }
+        [Display(Name = "Type's name")]
         public string Name { get; set; }
         public string Description { get; set; }
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)

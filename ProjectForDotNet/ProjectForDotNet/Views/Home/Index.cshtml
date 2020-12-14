@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<ProjectForDotNet.Models.Transport>
 
 @{
+    ViewBag.Title = "Index";
     Layout = "/Views/Shared/_Layout.cshtml";
 }
 <!-- Content Header (Page header) -->
@@ -27,28 +28,46 @@
             <thead>
                 <tr>
                     <td>Name</td>
+                    <td>Category</td>
                     <td>Producer</td>
                     <td>Price (tenge)</td>
                     <td>Weight</td>
                     <td>Capacity</td>
                     <td>Max speed</td>
+                    <td>Description</td>
                     <td>Image</td>
-                    <td>&nbsp;</td>
+                    <td>Buy!</td>
                 </tr>
             </thead>
             <tbody>
-                @foreach (var transport in Model)
+                @foreach (var item in Model)
                 {
-                    <tr>
-                        <td>@transport.Name</td>
-                        <td>@transport.Producer</td>
-                        <td>@transport.Price</td>
-                        <td>@transport.Weight</td>
-                        <td>@transport.Capacity</td>
-                        <td>@transport.MaxSpeed</td>
-                        <td><img src="@Html.Raw(@transport.ImageUrl)" width='150' height='150'></td>
-                        <td><a href="/Home/Buy/@transport.TransportId">Buy now!</a></td>
-                    </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => item.Category.Name)</td>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.Producer)
+                    </th>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </th>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.Weight)
+                    </th>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.Capacity)
+                    </th>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.MaxSpeed)
+                    </th>
+                    <th><h6>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </h6></th>
+                    <td><img src="@Html.Raw(@Html.DisplayFor(modelItem => item.ImageUrl))" width='200' height='200'></td>
+                    <td><a href="/Home/Buy/@Html.DisplayFor(modelItem => item.TransportId)">Buy now!</a></td>
+                </tr>
                 }
             </tbody>
         </table>
